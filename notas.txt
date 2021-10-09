@@ -1,0 +1,2 @@
+#Abrir o Flask em modo debug
+python app.py

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar jogo | Gamekeep</title>
+    <!--<link rel="stylesheet" href="/public/styles/styleaddgame.css">-->
+</head>
+<style>
+    body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: azure;
+}
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.inputBox{
+    position: relative;
+}
+
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+}
+
+.labelInput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: 0.5px;
+}
+
+.inputUser:focus ~ .labelInput, .inputUser:valid ~ .labelInput{
+    top: -20px;
+    font-size: 10px;
+}
+
+#genero{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+#datainicio{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+}
+
+#submit{
+    background-color:red;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    color:white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color:blue;
+}
+</style>
+<body>
+    <div class="box">
+        <form action="/savedetails" method="POST">
+            <fieldset>
+                <legend><b>Adicionar jogo</b></legend>
+                <br>
+                <div class="inputBox">
+                    <tr>
+                        <td for="nome" class="labelInput">Digite o nome do Jogo</td>
+                        <td><input type="text" name="nome" id="nome" class="inputUser" required></td>
+                    </tr>
+                </div>
+                <br>
+                <div>
+                    <tr><td><p>Selecione o genero do jogo</p></td></tr>
+                    <tr><td><select name = "genero" id="genero">
+                        <option selected disabled value="">Selecione...</option>
+                        <option>Plataforma</option>
+                        <option>Shooter</option>
+                        <option>Luta</option>
+                        <option>Beat-em up</option>
+                        <option>Sobrevivência</option>
+                        <option>Rítmico</option>
+                        <option>Horror</option>
+                        <option>Metroidvania</option>
+                        <option>RPG</option>
+                        <option>MMORPG</option>
+                        <option>Aventura</option>
+                    </select></td></tr>
+                </div>
+                <br>
+                <tr><td><b>Data de aquisição do jogo</b></td></tr>
+                <tr><td><input type="date" name="datainicio" id="datainicio" required></td></tr> 
+                <br><br>
+                <tr><td><input type="submit" name="submit" id="submit"></td></tr>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
