@@ -11,7 +11,7 @@ def main():
 def add():
    return render_template("addgame.html")
 
-@app.route("/savedetails",methods = ["POST","GET"])
+@app.route("/savegame",methods = ["POST","GET"])
 def saveDetails():  
     msg = "msg"  
     if request.method == "POST":
@@ -28,7 +28,7 @@ def saveDetails():
         except:
             msg = "Não foi possivel adicionar o jogo"  
         finally:   
-            return render_template("pass.html",msg = msg)  
+            return render_template("complete.html",msg = msg)  
             con.close()
 
 @app.route("/gameslibrary")  
