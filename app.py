@@ -24,11 +24,11 @@ def saveDetails():
                 cur = con.cursor()  
                 cur.execute("INSERT into jogosdb (nome, genero, datainicio) values (?,?,?)",(nome,genero,datainicio))   
                 con.commit()  
-                msg = "Jogo adicionado a sua biblioteca"  
+                msg = "Jogo adicionado a sua biblioteca"
         except:
-            msg = "Não foi possivel adicionar o jogo"  
+            msg = "Não foi possivel adicionar o jogo"
         finally:   
-            return render_template("complete.html",msg = msg)  
+            return render_template("complete.html",msg = msg)
             con.close()
 
 @app.route("/gameslibrary")  
@@ -36,7 +36,7 @@ def view():
     con = sqlite3.connect("dbjogos.db")
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("select * from jogosdb")
+    cur.execute("SELECT * FROM jogosdb")
     rows = cur.fetchall()
     return render_template("gameslibrary.html",rows = rows)
 
