@@ -40,5 +40,22 @@ def view():
     rows = cur.fetchall()
     return render_template("gameslibrary.html",rows = rows)
 
+@app.route("/deletegame")
+def delete():
+    return render_template("deletegame.html")
+
+@app.route("/deletinho",methods = ["POST"])
+def deletinho():
+    id = request.form["id"]
+    with sqlite3.connect("dbjogos.db") as con:
+        try:
+            cur = con.cursor()  
+            cur.execute("DELETE FROM jogosdb WHERE id = ?",id)
+            msg = "Jogo excluido da biblioteca!!"
+        except:
+            msg = "Não pode ser excluido"
+        finally:
+            return render_template("deletinho.html",msg = msg)
+
 if __name__ == '__main__':
    app.run(debug = True)

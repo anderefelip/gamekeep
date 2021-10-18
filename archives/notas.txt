@@ -1,2 +1,4 @@
 #Abrir o Flask em modo debug
 python app.py
+
+#ID error DELETE from db
