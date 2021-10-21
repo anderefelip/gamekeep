@@ -2,10 +2,55 @@ from flask import *
 import sqlite3
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "Secret"
 
 @app.route("/")
-def main():
-   return render_template("index.html")
+def start():
+    return render_template("start.html")
+
+@app.route("/signup", methods = ["GET", "POST"])
+def signup():
+    msg = "msg"
+    if request.method == "POST":
+        if (request.form["username"]!= "" and request.form["password"]!= ""):
+            username = request.form["username"]
+            password = request.form["password"]
+            con = sqlite3.connect("dbjogos.db")
+            c = con.cursor()
+            c.execute("INSERT INTO login_users (username, password) VALUES (?,?)",(username,password))
+            con.commit()
+            msg = "Sua conta foi criada!"
+            con.close()
+            return redirect(url_for("login"))
+        else:
+            msg = "Conta não foi criada, tente novamente"
+    return render_template("signup.html", msg = msg)
+
+@app.route("/login", methods = ["GET", "POST"])
+def login():
+    msg = "msg"
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        con = sqlite3.connect("dbjogos.db")
+        c = con.cursor()
+        c.execute("SELECT * FROM login_users WHERE username = '"+username+"' and password = '"+password+"'")
+        res = c.fetchall()
+        
+        if len(res) ==1:
+            return redirect(url_for("index"))
+        else:
+            msg = "Verifique seu login e senha!"
+    return render_template("login.html", msg = msg)
+
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("start"))
 
 @app.route("/addgame")
 def add():
@@ -22,7 +67,7 @@ def saveDetails():
             
             with sqlite3.connect("dbjogos.db") as con:  
                 cur = con.cursor()  
-                cur.execute("INSERT into jogosdb (nome, genero, datainicio) values (?,?,?)",(nome,genero,datainicio))   
+                cur.execute("INSERT into jogosdb (nome, genero, datainicio) VALUES (?,?,?)",(nome,genero,datainicio))   
                 con.commit()  
                 msg = "Jogo adicionado a sua biblioteca"
         except:

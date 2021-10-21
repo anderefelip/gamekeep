@@ -2,3 +2,5 @@
 python app.py
 
 #ID error DELETE from db
+
+Preciso que cada usuario tenha sua propria biblioteca com seu login
