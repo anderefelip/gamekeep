@@ -38,6 +38,7 @@ def login():
         res = c.fetchall()
         
         if len(res) ==1:
+            session["username"] = username
             return redirect(url_for("index"))
         else:
             msg = "Verifique seu login e senha!"
