@@ -4,3 +4,5 @@ python app.py
 #ID error DELETE from db
 
 Preciso que cada usuario tenha sua propria biblioteca com seu login
+
+Precisor resolver erro botao voltar signup

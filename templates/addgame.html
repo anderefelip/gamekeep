@@ -4,47 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar jogo | Gamekeep</title>
-    <link rel="stylesheet" href="/static/css/addgame.css">
+    <title>Gamekeep | Adicionar jogo</title>
     <link rel="shortcut icon" href="/static/images/gamekeep_logo.ico" type="image/ico">
+
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/partials/header.css">
+    <link rel="stylesheet" href="/static/css/partials/addgame.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+    
 </head>
-<body>
-    <div class="box">
-        <form action="/savegame" method="POST">
-            <fieldset>
-                <legend><b>Adicionar jogo</b></legend>
-                <br>
-                <div class="inputBox">
-                    <tr>
-                        <td for="nome" class="labelInput">Digite o nome do Jogo</td>
-                        <td><input type="text" name="nome" id="nome" class="inputUser" required></td>
-                    </tr>
-                </div>
-                <br>
-                <div>
-                    <tr><td><p>Selecione o genero do jogo</p></td></tr>
-                    <tr><td><select name = "genero" id="genero">
-                        <option selected disabled value="">Selecione...</option>
-                        <option>Plataforma</option>
-                        <option>Shooter</option>
-                        <option>Luta</option>
-                        <option>Beat-em up</option>
-                        <option>Sobrevivência</option>
-                        <option>Rítmico</option>
-                        <option>Horror</option>
-                        <option>Metroidvania</option>
-                        <option>RPG</option>
-                        <option>MMORPG</option>
-                        <option>Aventura</option>
-                    </select></td></tr>
-                </div>
-                <br>
-                <tr><td><b>Data de aquisição do jogo</b></td></tr>
-                <tr><td><input type="date" name="datainicio" id="datainicio" required></td></tr> 
-                <br><br>
-                <tr><td><input type="submit" name="submit" id="submit"></td></tr>
-            </fieldset>
-        </form>
+<body id="addgame">
+    <div id="container">
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/index">
+                <img src="/static/images/back.svg" alt="Voltar">
+                </a>
+            </div>
+            <div class="header-content">
+                <strong>Adicione um jogo</strong>
+                <p>É muito simples e lembrando, digite ou selecione as informações corretas do titulo</p>
+            </div>
+        </header>
+        <main>
+            <div class="box">
+                <form action="/savegame" method="POST">
+                    <fieldset>
+                        <legend><b>Adicionar jogo</b></legend>
+                        <tr><td for="nome">Digite o nome do Jogo</td>
+                        <td><input type="text" name="nome" id="nome" class="inputUser" required></td></tr>
+                        <br><br>
+                        <div>
+                            <tr><td><p>Selecione o genero do jogo</p></td></tr>
+                            <tr><td><select name = "genero" id="genero">
+                                <option selected disabled value="">Selecione...</option>
+                                <option>Plataforma</option>
+                                <option>Shooter</option>
+                                <option>Luta</option>
+                                <option>Beat-em up</option>
+                                <option>Sobrevivência</option>
+                                <option>Rítmico</option>
+                                <option>Horror</option>
+                                <option>Metroidvania</option>
+                                <option>RPG</option>
+                                <option>MMORPG</option>
+                                <option>Aventura</option>
+                            </select></td></tr>
+                        </div>
+                        <br>
+                        <tr><td><b>Data de aquisição do jogo</b></td></tr>
+                        <tr><td><input type="date" name="datainicio" id="datainicio" required></td></tr> 
+                        <br><br>
+                        <tr><td><input type="submit" name="submit" id="submit"></td></tr>
+                        <br><br>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
     </div>
 </body>
 </html>

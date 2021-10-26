@@ -5,19 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamekeep - Gerencie os jogos da sua biblioteca</title>
-    <link rel="stylesheet" href="/static/css/start_index.css">
     <link rel="shortcut icon" href="/static/images/gamekeep_logo.ico" type="image/ico">
+
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/partials/start_index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+  
 </head>
 <body>
     <div class="box">
         <h1>Olá,</h1>
         <h1>{{session.username}}</h1>
-        <br><br>
         <h2>Escolha uma opção</h2>
+        <br>
         <a href ="/gameslibrary"><button>Sua Biblioteca</button></a><br><br>
         <a href="/addgame"><button>Adicionar Jogo</button></a><br><br>
         <a href="/logout"><button>Sair</button></a><br><br>
-        <br><br>
     </div>
 </body>
 </html>

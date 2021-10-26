@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamekeep | Login</title>
-    <link rel="stylesheet" href="/static/css/login.css">
     <link rel="shortcut icon" href="/static/images/gamekeep_logo.ico" type="image/ico">
+
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/partials/login_sign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+  
 </head>
 <body>
     <div class="login">
         <form action="/login" method="POST">
-            <h1>Faça seu login abaixo 🚀</h1>
+            <h1>Faça seu login abaixo 🚀</h1><br>
             <input type="text" name="username" placeholder="username">
             <br><br>
             <input type="password" name="password" placeholder="password">
             <br><br>
             <input type="submit" name="Login" id="login" value="Login">
+            <a href ="/signup"><h2>Não possui conta? Registre-se aqui</h2></a>
         </form>
     </div>
 </body>
